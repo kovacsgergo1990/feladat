@@ -1,0 +1,20 @@
+<div class="topbar">
+    {% if app.user %}
+        Bejelentkezve mint: {{ app.user.username }}
+        /{% if 'ROLE_ADMIN' in app.user.roles %} |Adminisztrátor| {% endif %}
+        {% if 'ROLE_USER' in app.user.roles %} |Felhasználó| {% endif %}
+        {% if 'ROLE_EDITOR' in app.user.roles %} |Szerkesztő| {% endif %}/
+        <a href="{{ path('logout') }}">[Kijelentkezés]</a>
+    {% else %}
+        Nincs bejelentkezve
+    <a href="{{ path('login') }}">[Bejelentkezés]</a>
+    {% endif %}
+    {% if app.user %}
+        {% if 'ROLE_USER' in app.user.roles or 'ROLE_ADMIN' in app.user.roles %}
+            <a href="{{ path('user') }}">Felhasználók oldala</a>
+        {% endif %}
+        {% if 'ROLE_EDITOR' in app.user.roles or 'ROLE_ADMIN' in app.user.roles %}
+            <a href="{{ path('editor') }}">Szerkesztők oldala</a>
+        {% endif %}
+    {% endif %}
+</div>

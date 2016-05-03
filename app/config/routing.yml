@@ -4,3 +4,15 @@ main:
 
 logout:
   path: /logout
+
+user:
+    path: /user
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    user.html.twig
+
+editor:
+    path: /editor
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    editor.html.twig

@@ -6,7 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class LoginController extends Controller
+class MainController extends Controller
 {
 
     /**
@@ -21,9 +21,8 @@ class LoginController extends Controller
             $this->get('attempt_manager')->resetState();
         }
 
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
+
+        return $this->render('index.html.twig');
     
     }
 

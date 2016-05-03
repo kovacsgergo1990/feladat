@@ -64,9 +64,11 @@
     }
 
   </style>
+  <link rel="stylesheet" href="{{ asset('css/topbar.css') }}">
 </head>
 
 <body>
+{% include 'topbar/topbar.html.twig' %}
 <div class="container">
 
       <form class="form-signin" action="{{ path('login') }}" method="post">
@@ -81,7 +83,7 @@
         {% endif %}
         <button class="btn btn-lg btn-primary btn-block loginbutton" type="submit">Bejelentkezés</button>
         {% if error %}
-          {{ error.code}}
+          <span style="color:red">Hibás Felhasználónév/Jelszó.</span>
         {% endif %}
 
       </form>

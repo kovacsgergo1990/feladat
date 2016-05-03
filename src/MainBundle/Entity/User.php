@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="app_users")
+ * @ORM\Table(name="user")
  */
 class User implements UserInterface, \Serializable
 {
@@ -20,7 +20,7 @@ class User implements UserInterface, \Serializable
     private $id;
     
     /**
-     * @ORM\Column(type="string", length=25, unique=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $username;
 
@@ -31,7 +31,7 @@ class User implements UserInterface, \Serializable
 
 
     /**
-     * @ORM\Column(name="roles", type="string")
+     * @ORM\Column(name="roles", type="string", length=255)
      */
     private $roles;
 
@@ -130,5 +130,18 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
+    /**
+     * Set roles
+     *
+     * @param string $roles
+     *
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
 
 }

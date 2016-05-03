@@ -32,8 +32,12 @@ security:
 
             logout: true
 
+    role_hierarchy:
+          ROLE_ADMIN:       [ROLE_USER,ROLE_EDITOR]
+
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/, roles: ROLE_USER }
+        - { path: ^/user, roles: ROLE_USER }
+        - { path: ^/editor, roles: ROLE_EDITOR }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
