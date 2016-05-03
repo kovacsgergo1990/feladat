@@ -9,6 +9,6 @@ Az alkalmazás DEV környezetre van beállítva.
       php bin/console doctrine:schema:update --force
       php bin/console doctrine:fixtures:load
 ```
-Felhasználók: **Admin,User 1,User 2, User 3, User 4**
+Felhasználók: **Admin,User 1,User 2, User 3**
 
 Az összes felhasználó jelszava: **12341234**
